@@ -15,4 +15,6 @@
 Route::get('/', 'ClientController@index');
 //Quando acessar /create_client acessa a action create
 Route::get('/create_client', 'ClientController@create');
+//Quando salvar o formulário de criar cliente
+Route::post('/create_client', 'ClientController@store');
 

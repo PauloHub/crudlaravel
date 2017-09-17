@@ -39,7 +39,11 @@ class ClientController extends Controller
     //ACtion pra salvar cliente
     public function store(Request $request)
     {
-        //
+        //array de dados que vem do post
+        $dados = $request->all();
+        //instalciar model
+        Client::create($dados);
+        return back()->with('sucess' = 'Cliente cadastrado com sucessl!');
     }
 
     /**

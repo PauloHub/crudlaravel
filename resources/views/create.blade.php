@@ -1,5 +1,12 @@
 <div class="container">
+	@if(session('sucess'))
+		<p class="alert-sucess">
+			{{ session('sucess') }}
+		</p>
+	@endif
 	<form action="{{ url('/create_client') }}" method="post">
+		<!-- Token de Segurança -->
+		{{ csrf_field() }}
 		<div class="col-lg-3">
 			<div class="form-group">
 				<label for="name">Digite o nome</label>
