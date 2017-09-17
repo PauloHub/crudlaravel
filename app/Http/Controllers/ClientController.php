@@ -43,7 +43,7 @@ class ClientController extends Controller
         $dados = $request->all();
         //instalciar model
         Client::create($dados);
-        return back()->with(['sucess' => 'Cliente cadastrado com sucessl!']);
+        return back()->with(['success' => 'Cliente cadastrado com sucesso!']);
     }
 
     /**

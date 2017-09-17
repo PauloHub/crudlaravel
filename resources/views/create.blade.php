@@ -1,7 +1,7 @@
 <div class="container">
-	@if(session('sucess'))
-		<p class="alert-sucess">
-			{{ session('sucess') }}
+	@if(session('success'))
+		<p class="alert-success">
+			{{ session('success') }}
 		</p>
 	@endif
 	<form action="{{ url('/create_client') }}" method="post">
