@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+//Quando acessar a home "/" vai acessar a action index
+Route::get('/', 'ClientController@index');
+//Quando acessar /create_client acessa a action create
+Route::get('/create_client', 'ClientController@create');
+
