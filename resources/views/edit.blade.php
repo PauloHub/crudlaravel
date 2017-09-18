@@ -7,6 +7,7 @@
 	<form action="{{ url('/edit_client', $client->id) }}" method="post">
 		<!-- Token de Segurança -->
 		{{ csrf_field() }}
+		<input type="hidden" name="_method" value="PUT">
 		<div class="col-lg-3">
 			<div class="form-group">
 				<label for="name">Digite o nome</label>
