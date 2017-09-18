@@ -25,35 +25,36 @@
 		}
 	</style>
 
-<body>
-	<div class="container">
-		<h1>Sistema de Cleintes</h1>
-		<div><a href="{{ url('/create_client') }}" class="btn btn-primary">Criar Cliente</a></div>		
-	</div>	
-	<div class="container _content">
-		<table class="table">
-			<thead>
-				<tr>
-					<th>#</th>
-					<th>Nome</th>
-					<th>Email</th>
-					<th>Ações</th>
+	<body>
+		<div class="container">
+			<h1>Sistema de Cleintes</h1>
+			<div><a href="{{ url('/create_client') }}" class="btn btn-primary">Criar Cliente</a></div>		
+		</div>	
+		<div class="container _content">
+			<table class="table">
+				<thead>
+					<tr>
+						<th>#</th>
+						<th>Nome</th>
+						<th>Email</th>
+						<th>Ações</th>
+					</tr>
+				</thead>
+				<tbody>
+					@foreach($clients as $client)
+					<tr>
+						<td>{{ $client->id }}</td>
+						<td>{{ $client->name }}</td>
+						<td>{{ $client->email }}</td>
+						<td>
+							<input type="button" name="" value="Deletar" class="btn btn-danger">
+							<a href="{{ url('/edit_client', $client->id) }}" class="btn btn-success" >Editar</a>
+						</td>
 				</tr>
-			</thead>
-			<tbody>
-				<tr>
-					<td>1</td>
-					<td>Paulo Luis</td>
-					<td>Pauloluis.f@gmail.com</td>
-					<td>
-						<input type="button" name="" value="Deletar" class="btn btn-danger">
-						<input type="button" name="" value="Editar" class="btn btn-success">
-
-					</td>
-			</tr>
-			</tbody>
-		</table>
-	</div>
-	
-</body>
+				@endforeach
+				</tbody>
+			</table>
+		</div>
+		
+	</body>
 </html>

@@ -15,8 +15,9 @@ class ClientController extends Controller
     //Exibir todos clientes cadastrados
     public function index()
     {
+        $clients = Client::all();
         //o nome index abaixo refere-se ao nome da view tirando a parte .blade.php
-        return view('index');
+        return view('index', compact('clients'));
     }
 
     /**
@@ -69,6 +70,9 @@ class ClientController extends Controller
     public function edit($id)
     {
         //
+        $client = Client::findOrFail($id);
+
+        return view('edit', compact('client'));
     }
 
     /**
@@ -82,6 +86,12 @@ class ClientController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $client = $request->all();
+        //Onde o id for igual ao id
+        $id = Client::findOrFail($id);
+        $id->update($client);
+
+        return back()->with(['success' => 'Cliente editado com sucesso!']);
     }
 
     /**
