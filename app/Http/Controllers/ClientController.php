@@ -103,6 +103,10 @@ class ClientController extends Controller
     //deletar cliente o cliente ou qual quer dado do banco
     public function destroy($id)
     {
-        //
+        //Onde o id for igual ao id
+        $client_delete = Client::findOrFail($id);
+        $client_delete->delete($id);
+
+        return back()->with(['success' => 'Cliente deletado com sucesso!']);
     }
 }

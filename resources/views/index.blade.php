@@ -31,6 +31,11 @@
 			<div><a href="{{ url('/create_client') }}" class="btn btn-primary">Criar Cliente</a></div>		
 		</div>	
 		<div class="container _content">
+			@if(session('success'))
+				<p class="alert alert-success">
+					{{ session('success') }}
+				</p>
+			@endif
 			<table class="table">
 				<thead>
 					<tr>
@@ -47,8 +52,13 @@
 						<td>{{ $client->name }}</td>
 						<td>{{ $client->email }}</td>
 						<td>
-							<input type="button" name="" value="Deletar" class="btn btn-danger">
-							<a href="{{ url('/edit_client', $client->id) }}" class="btn btn-success" >Editar</a>
+							<form action="{{ url('/delete_client', $client->id) }}" method="post">
+								<!-- Token de Segurança -->
+								{{ csrf_field() }}
+								<input type="hidden" name="_method" value="DELETE">
+								<input type="submit" name="" value="Deletar" class="btn btn-danger">
+								<a href="{{ url('/edit_client', $client->id) }}" class="btn btn-success" >Editar</a>
+							</form>
 						</td>
 				</tr>
 				@endforeach

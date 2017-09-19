@@ -21,4 +21,6 @@ Route::post('/create_client', 'ClientController@store');
 Route::get('/edit_client/{id}', 'ClientController@edit');
 //Put é o metodo de edição do laravel
 Route::put('/edit_client/{id}', 'ClientController@update');
+//Deletar
+Route::delete('/delete_client/{id}', 'ClientController@destroy');
 
