@@ -27,7 +27,7 @@
 
 	<body>
 		<div class="container">
-			<h1>Sistema de Cleintes</h1>
+			<h1>Sistema de Cliente</h1>
 			<div><a href="{{ url('/create_client') }}" class="btn btn-primary">Criar Cliente</a></div>		
 		</div>	
 		<div class="container _content">
